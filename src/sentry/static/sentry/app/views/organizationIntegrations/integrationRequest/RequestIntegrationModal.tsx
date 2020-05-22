@@ -62,7 +62,7 @@ export default class RequestIntegrationModal extends React.Component<Props, Stat
   };
 
   handleSubmitError = () => {
-    addErrorMessage('Error sending the request')
+    addErrorMessage('Error sending the request');
   };
 
   render() {
@@ -83,9 +83,7 @@ export default class RequestIntegrationModal extends React.Component<Props, Stat
       },
     ];
 
-    const buttonText = this.state.isSending
-      ? t('Sending Request')
-      : t('Send Request');
+    const buttonText = this.state.isSending ? t('Sending Request') : t('Send Request');
 
     return (
       <React.Fragment>
