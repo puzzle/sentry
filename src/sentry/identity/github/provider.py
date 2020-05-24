@@ -8,9 +8,11 @@ from sentry.identity.oauth2 import OAuth2Provider
 def get_user_info(access_token):
     session = http.build_session()
     resp = session.get(
-        'https://api.github.com/user',
-        params={'access_token': access_token},
-        headers={'Accept': 'application/vnd.github.machine-man-preview+json'}
+        "https://api.github.com/user",
+        headers={
+            "Accept": "application/vnd.github.machine-man-preview+json",
+            "Authorization": "token %s" % access_token,
+        },
     )
     resp.raise_for_status()
     resp = resp.json()
